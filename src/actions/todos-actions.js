@@ -8,3 +8,10 @@ export const addTodo = (todo, id) => {
     id:uuidv4()
   };
 }
+
+export const removeTodo = (id) => {
+  return {
+    type: types.REMOVE_TODO,
+    id
+  };
+}
