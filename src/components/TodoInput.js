@@ -1,23 +1,22 @@
-import React, { Component } from 'react';
+import React from 'react';
 
-class TodoInput extends Component {
+const TodoInput = ({addTodo}) => {
 
-  addTodo = () => {
-    console.log('The Message',this.message.value);
-    this.props.addTodo(this.message.value);
-    this.message.value = '';
+  let message = '';
+
+  const handleAddTodo = () => {
+    console.log('The Message', message.value);
+    addTodo(message.value);
+    message.value = '';
   }
 
-  render() {
-    return (
-      <div>
-        <input ref={node => {this.message = node}} type="text"/><button onClick={this.addTodo}>Add todo</button>
-      </div>
-    );
-  }
+  return (
+    <div>
+      <input ref={node => {message = node}} type="text"/>
+      <button onClick={handleAddTodo}>Add todo</button>
+    </div>
+  );
+
 }
-
-
-
 
 export default TodoInput;
